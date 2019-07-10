@@ -1,0 +1,353 @@
+.main__wrapper{
+    flex: 1;
+}
+.image__gallery{
+    display: flex;
+     @media only screen and (max-width: $bp-small){
+        flex-wrap: wrap;
+    }   
+    &-item{
+        flex-basis: 50%;
+        width: 50%;
+        img{
+            width: 100%;
+            display: block;
+            &:last-child{
+                @media only screen and (max-width: $bp-small){
+                    display: none;
+                }
+            } 
+            
+            @media only screen and (max-width: $bp-small){
+                height: 20rem;
+                width: auto;
+                   
+            }    
+        }
+    }
+    
+}
+
+.hotel__overview{
+    display: flex;
+    align-items: center;
+    
+    .star-container{
+        display: flex;
+    }
+    
+    &-icon-star,
+    &-icon-location{
+        width: 2rem;
+        height: 2rem;
+        fill: var(--color-grey-dark-1);
+    }
+   
+    &-name{
+        @media only screen and (max-width: $bp-x-small){
+            flex-grow: 0.8;
+        }
+        h2{
+            font-size: 2.5rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            @media only screen and (max-width: $bp-smallest){
+                    font-size: 1.7rem;
+            }
+            
+            
+        }  
+    }
+    
+    &-rating{
+        margin-right: auto;
+    }
+    
+    &-location{
+        display: flex;
+        align-items: center;
+        
+        &-place{
+            font-size: 1.25rem;    
+            border-bottom: 1px solid var(--color-grey-dark-1);
+            padding-bottom: 2px;
+            cursor: pointer;
+            margin-left: 1rem;
+            
+            &:hover{
+                animation: pulsate 1s infinite;
+            }
+        }
+    }
+    
+    &-scores{
+        align-self: stretch;
+        background-color: var(--color-primary);
+        color: #fff;
+        padding: 0.5rem 2rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1.2rem;
+        &-avgrating{
+            font-size: 2.25rem;
+        }
+        &-votes{
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+    }
+}
+
+
+
+
+@keyframes pulsate{
+    0%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+    50%{
+        transform: scale(1.04);
+        box-shadow: 0 1rem 6rem rgba(0,0,0,0.25);
+    }
+    100%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+
+
+/////////////HOTEL  DESCRIPTION/////////////////
+
+.hotel__details{
+    display: flex;
+    padding: 4rem;
+    font-size: 1.4rem;
+    background-color: var(--color-grey-light-1);
+    @media only screen and (max-width: $bp-medium){
+        padding: 2rem;
+    }
+    @media only screen and (max-width: $bp-small){
+        flex-direction: column;
+    }
+    
+    &-description{
+        padding: 3rem;
+        flex-basis: 60%;
+        margin-right: 4rem;
+        background-color: #fff;
+        box-shadow: 0 2rem 5rem rgba(0,0,0,0.06);
+        @media only screen and (max-width: $bp-small){
+            margin-right: 0;
+            margin-bottom: 4rem;
+        }
+                
+    }
+    
+    .features__list{
+        margin: 3rem 0;
+        padding: 3rem 0;
+        border-top: 1px solid var(--color-grey-light-3);
+        border-bottom: 1px solid var(--color-grey-light-3);
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        &-item{
+            flex-basis: 50%;
+            margin-bottom: 1rem;
+            &::before{
+                content: "";
+                margin-right: 1rem;
+                display: inline-block;
+                width: 1.2rem;
+                height:1.2rem;
+//                background-image: url(../images/chevron-thin-right.svg);
+//                background-size: cover;
+                
+                background-color: var(--color-primary);
+                mask-image: url(../images/chevron-thin-right.svg);
+                mask-size: cover;
+              
+            }
+        }
+    }
+    
+    
+    .recommend{
+        display: flex;
+        align-items: center;
+        
+        &-text{
+            margin-right: auto;
+            font-size: 1.3rem;
+            color: var(--color-grey-dark-2)
+        }
+        
+        &-photos{
+            display: flex;
+            img{
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+                box-sizing: content-box;
+                border: 3px solid #fff;
+                &:not(:last-child){
+                    margin-right: -1.15rem;
+                }
+            }
+            
+        }
+    }
+    
+    &-reviews{
+        flex: 1;        
+    }
+    
+    .review{
+        padding: 3.5rem;
+        margin-bottom: 2rem;
+        background-color: #fff;
+        box-shadow: 0 2rem 5rem rgba(0,0,0,0.1);
+        position: relative;
+        
+        &::before{
+            content: '\201C';
+            width: 5rem;
+            height: 5rem;
+            position: absolute;
+            left: -.6rem;
+            top: -2rem;
+            line-height: 1;
+            font-size: 20rem;
+            opacity: 0.3;
+            color: var(--color-grey-dark-3);
+            font-family: sans-serif;
+        }
+        
+        &__text{
+            margin-bottom: 2rem;
+        }
+        &__user-box{
+            display: flex;
+            align-items: center;
+        }
+        
+        &__user-photo{
+            width: 5rem;
+            border-radius: 50%;
+        }
+        
+        &__user-details{
+            margin-right: auto;
+            margin-left: 2rem;
+            &-name{
+                
+                
+            }
+            &-date{
+                font-size: 1.2rem;
+                color: var(--color-grey-dark-3);
+            }
+            
+        }
+        
+        &__user-rating{
+            font-size: 3rem;
+            align-self: baseline;
+            color: var(--color-primary);
+            
+        }
+        
+        
+    }    
+}
+
+.hotel__book{
+    background-color: #fff;
+    padding: 3rem;
+    text-align: center;
+    color: var(--color-primary);
+    
+    h2{
+        font-size: 2.2rem;
+        margin-bottom: 1.2rem;
+        font-weight: 100;
+    }
+    .btn__book{
+        padding: 1.5rem 7rem;
+        position: relative;
+        font-size: 1.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        box-sizing: content-box;
+        overflow: hidden;
+        border-radius: 100px;
+        border: 0;
+        cursor: pointer;
+        color: #fff;
+        background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    
+        &:hover{
+             background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+            
+            .btn__invisible{
+                top: 0;
+            }    
+        
+            .btn__visible{
+               transform: translateY(200%);
+            }
+        }
+    
+        .btn__invisible{
+            display: inline-block;
+            padding: 1.5rem 0;
+            width:100%;
+            height: 100%;
+            position: absolute;
+            top: -100%;
+            left: 0;
+            transition: all 0.4s;
+        }
+        
+        .btn__visible{
+           display: inline-block;
+            transition: all 0.4s;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
